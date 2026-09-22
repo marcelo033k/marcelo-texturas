@@ -234,6 +234,31 @@
             transform: scale(0.98);
         }
 
+        /* NOTIFICAÇÃO ESTILIZADA (TOAST) */
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(13, 22, 42, 0.95);
+            color: #00b7ff;
+            border: 1px solid #00b7ff;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            box-shadow: 0 5px 20px rgba(0, 183, 255, 0.4);
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        .toast-notification.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
         /* Caixa de Aviso de Créditos */
         .credit-box {
             background: rgba(255, 170, 0, 0.1);
@@ -433,6 +458,9 @@
         </footer>
     </div>
 
+    <!-- ELEMENTO DA NOTIFICAÇÃO CUSTOMIZADA -->
+    <div id="toast" class="toast-notification">✓ CÓDIGO COPIADO!</div>
+
     <script>
         // LÓGICA DO CARROSSEL AUTOMÁTICO
         let slideIndex = 0;
@@ -496,13 +524,21 @@
             likeCount.innerText = likes;
         }
 
-        // FUNÇÃO DE COPIAR CÓDIGO
+        // FUNÇÃO DE COPIAR CÓDIGO COM TOAST CUSTOMIZADO
         function copyCode() {
             var copyText = document.getElementById("skinUrl");
             copyText.select();
             copyText.setSelectionRange(0, 99999);
             navigator.clipboard.writeText(copyText.value);
-            alert("Código da skin PMBA copiado com sucesso!");
+
+            // Exibir a notificação personalizada
+            var toast = document.getElementById("toast");
+            toast.classList.add("show");
+            
+            // Ocultar após 2.5 segundos
+            setTimeout(function(){ 
+                toast.classList.remove("show"); 
+            }, 2500);
         }
 
         // FUNÇÃO DE COMENTÁRIOS
