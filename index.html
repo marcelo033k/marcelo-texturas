@@ -49,7 +49,7 @@
         .game-card {
             background: linear-gradient(145deg, #1a1a1c, #141416);
             border-radius: 12px;
-            padding: 20px;
+            overflow: hidden;
             text-decoration: none;
             color: white;
             display: block;
@@ -57,33 +57,40 @@
             text-align: left;
             margin-bottom: 15px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            transition: background 0.2s;
+            transition: transform 0.2s;
         }
         .game-card:active {
-            background: #222226;
+            transform: scale(0.98);
             border-color: #00e676;
+        }
+        .game-cover {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid #2a2a2d;
+        }
+        .game-info {
+            padding: 15px;
         }
         .game-card h2 {
             font-size: 1.3rem;
             color: #ffffff;
             margin-bottom: 6px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
         .game-card p {
             color: #888888;
             font-size: 0.85rem;
+            margin-bottom: 12px;
         }
         .badge {
             background-color: #00e676;
             color: #000;
             font-size: 0.75rem;
             font-weight: bold;
-            padding: 3px 8px;
+            padding: 6px 12px;
             border-radius: 4px;
             display: inline-block;
-            margin-top: 10px;
         }
         footer {
             margin-top: 60px;
@@ -104,11 +111,14 @@
     <div class="container">
         <h2 class="section-title">Escolha o Jogo</h2>
 
-        <!-- Card do jogo Global Truck Online -->
+        <!-- Card do jogo Global Truck Online com a capa enviada -->
         <a href="global-truck-online.html" class="game-card">
-            <h2>🚚 Global Truck Online</h2>
-            <p>Acesse o catálogo completo com as minhas skins criadas para este jogo.</p>
-            <span class="badge">Acessar Skins</span>
+            <img src="logodapagina.png" alt="Capa Global Truck Online" class="game-cover">
+            <div class="game-info">
+                <h2>Global Truck Online</h2>
+                <p>Acesse o catálogo completo com as minhas skins criadas para este jogo.</p>
+                <span class="badge">Acessar Skins</span>
+            </div>
         </a>
     </div>
 
