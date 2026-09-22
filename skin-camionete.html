@@ -76,7 +76,6 @@
             text-shadow: 0 0 10px rgba(0, 183, 255, 0.5);
         }
 
-        /* Titulos das Secoes */
         .section-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.05rem;
@@ -89,7 +88,6 @@
             gap: 8px;
         }
 
-        /* Estilo do Carrossel de Cards */
         .carousel-container {
             display: flex;
             gap: 15px;
@@ -109,7 +107,6 @@
             background: rgba(0, 0, 0, 0.3);
         }
 
-        /* Card individual dentro do carrossel */
         .skin-card {
             flex: 0 0 88%;
             scroll-snap-align: center;
@@ -121,6 +118,7 @@
             border: 1px solid rgba(0, 183, 255, 0.35);
             text-align: left;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            position: relative;
         }
         .skin-thumb {
             width: 100%;
@@ -157,6 +155,30 @@
             display: inline-block;
             text-transform: uppercase;
             box-shadow: 0 0 10px rgba(0, 183, 255, 0.4);
+            text-decoration: none;
+        }
+
+        /* Card bloqueado / em breve */
+        .badge-soon {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #ff0055;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 5px 10px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(255, 0, 85, 0.6);
+            text-transform: uppercase;
+        }
+        .btn-disabled {
+            background: #233145;
+            color: #657b99;
+            box-shadow: none;
+            cursor: not-allowed;
+            pointer-events: none;
         }
 
         footer {
@@ -188,46 +210,37 @@
             <div class="skin-card">
                 <img src="skins%20camionete.png" alt="Viatura PMBA" class="skin-thumb">
                 <div class="skin-info">
-                    <h3 class="skin-title">Viatura PMBA</h3>
-                    <p class="skin-desc">Polícia Militar da Bahia tradicional.</p>
+                    <h3 class="skin-title">Viatura Polícia Militar da Bahia</h3>
+                    <p class="skin-desc">Viatura oficial da Polícia Militar da Bahia para camionete.</p>
                     <a href="camionete-pmba.html" class="btn-view">VER DETALHES</a>
                 </div>
             </div>
 
-            <!-- Viatura 2: Exemplo de Outra Viatura -->
+            <!-- Viatura 2: RONDESP (EM BREVE) -->
             <div class="skin-card">
-                <img src="skins%20camionete.png" alt="Viatura RONDESP" class="skin-thumb">
+                <span class="badge-soon">Em Breve</span>
+                <img src="logodapagina.png" alt="Viatura RONDESP" class="skin-thumb">
                 <div class="skin-info">
                     <h3 class="skin-title">Viatura RONDESP</h3>
-                    <p class="skin-desc">Camuflada tática da Rondesp Bahia.</p>
-                    <a href="camionete-rondesp.html" class="btn-view">VER DETALHES</a>
+                    <p class="skin-desc">Camuflada tática da Rondesp Bahia (Lançamento em breve).</p>
+                    <span class="btn-view btn-disabled">EM BREVE</span>
                 </div>
             </div>
 
         </div>
 
-
         <!-- ================= SEÇÃO 2: ESTILO AGRO ================= -->
         <h2 class="section-title">🌾 Estilo Agro / Fazenda</h2>
         <div class="carousel-container">
 
-            <!-- Agro 1 -->
+            <!-- Agro 1 (EM BREVE) -->
             <div class="skin-card">
+                <span class="badge-soon">Em Breve</span>
                 <img src="logodapagina.png" alt="Camionete Agro" class="skin-thumb">
                 <div class="skin-info">
                     <h3 class="skin-title">Camionete Agro Bruta</h3>
-                    <p class="skin-desc">Visual enlameado no estilo fazenda forte.</p>
-                    <a href="camionete-agro.html" class="btn-view">VER DETALHES</a>
-                </div>
-            </div>
-
-            <!-- Agro 2 -->
-            <div class="skin-card">
-                <img src="logodapagina.png" alt="Camionete John Deere" class="skin-thumb">
-                <div class="skin-info">
-                    <h3 class="skin-title">Estilo John Deere</h3>
-                    <p class="skin-desc">Pintura temática verde e amarela do Agro.</p>
-                    <a href="camionete-johndeere.html" class="btn-view">VER DETALHES</a>
+                    <p class="skin-desc">Visual no estilo fazenda (Lançamento em breve).</p>
+                    <span class="btn-view btn-disabled">EM BREVE</span>
                 </div>
             </div>
 
