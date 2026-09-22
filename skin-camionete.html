@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skin de Camionete - Marcelo Texturas</title>
+    <title>Skins de Camionete - Marcelo Texturas</title>
     <!-- Fontes estilizadas do Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,68 +63,81 @@
             max-width: 500px;
             margin: 0 auto;
         }
-        .skin-preview-box {
-            background: linear-gradient(160deg, #0d162a, #090e1a);
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid rgba(0, 183, 255, 0.4);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-            padding: 15px;
-            text-align: center;
-        }
-        .skin-preview-img {
-            width: 100%;
-            border-radius: 10px;
-            border: 1px solid rgba(0, 183, 255, 0.3);
-            margin-bottom: 15px;
-        }
-        .skin-title {
+        .page-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.3rem;
             font-weight: 800;
             color: #ffffff;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: left;
+            border-left: 4px solid #00b7ff;
+            padding-left: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(0, 183, 255, 0.5);
+        }
+        
+        /* Grid das Skins */
+        .skins-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .skin-card {
+            background: linear-gradient(160deg, #0d162a, #090e1a);
+            border-radius: 14px;
+            overflow: hidden;
+            text-decoration: none;
+            color: white;
+            display: block;
+            border: 1px solid rgba(0, 183, 255, 0.35);
+            text-align: left;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .skin-card:active {
+            transform: scale(0.98);
+            border-color: #00b7ff;
+            box-shadow: 0 0 15px rgba(0, 183, 255, 0.4);
+        }
+        .skin-thumb {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid rgba(0, 183, 255, 0.25);
+            background-color: #080d1a;
+        }
+        .skin-info {
+            padding: 15px;
+        }
+        .skin-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 6px;
         }
         .skin-desc {
             color: #a0b8d0;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-        .code-input-container {
-            margin-bottom: 15px;
-        }
-        .code-input {
-            width: 100%;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid rgba(0, 183, 255, 0.4);
-            background-color: #050a14;
-            color: #00b7ff;
-            font-family: monospace;
-            font-size: 0.85rem;
-            text-align: center;
+            font-size: 0.88rem;
             margin-bottom: 12px;
-            outline: none;
         }
-        .btn-copy {
-            width: 100%;
+        .btn-view {
             background: linear-gradient(90deg, #00b7ff, #0066ff);
             color: #ffffff;
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.75rem;
             font-weight: 800;
             letter-spacing: 1px;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
+            padding: 7px 14px;
+            border-radius: 6px;
+            display: inline-block;
             text-transform: uppercase;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(0, 183, 255, 0.5);
-            transition: background 0.2s;
+            box-shadow: 0 0 10px rgba(0, 183, 255, 0.4);
         }
-        .btn-copy:active {
-            transform: scale(0.98);
-        }
+
         footer {
             margin-top: 50px;
             color: #4a6584;
@@ -139,38 +152,32 @@
 
     <div class="container">
         <header>
-            <a href="global-truck-online.html" class="btn-back">← Voltar para a lista</a>
+            <a href="global-truck-online.html" class="btn-back">← Voltar para Categorias</a>
             <img src="Marcelo Textura.png" alt="Marcelo Texturas" class="profile-img">
         </header>
 
-        <div class="skin-preview-box">
-            <img src="capa-camionete.png" alt="Skin Camionete" class="skin-preview-img">
-            
-            <h1 class="skin-title">🛻 Skin de Camionete</h1>
-            <p class="skin-desc">Copie o código/URL da skin abaixo para colar direto dentro do jogo Global Truck Online.</p>
+        <h1 class="page-title">🛻 Skins de Camionete</h1>
 
-            <div class="code-input-container">
-                <!-- Substitua o link abaixo pela URL da imagem da sua skin -->
-                <input type="text" id="skinUrl" class="code-input" value="https://raw.githubusercontent.com/marcelo033k/marcelo-texturas/main/capa-camionete.png" readonly>
-                <button class="btn-copy" onclick="copyCode()">Copiar Código da Skin</button>
-            </div>
+        <div class="skins-grid">
+
+            <!-- Skin 1: PMBA -->
+            <a href="camionete-pmba.html" class="skin-card">
+                <img src="skins%20camionete.png" alt="Skin Camionete PMBA" class="skin-thumb">
+                <div class="skin-info">
+                    <h2 class="skin-title">Viatura Polícia Militar da Bahia</h2>
+                    <p class="skin-desc">Skin completa e detalhada da PMBA para camionete no Global Truck Online.</p>
+                    <span class="btn-view">Pegar Código</span>
+                </div>
+            </a>
+
+            <!-- Quando tiver mais skins de camionete, basta copiar o bloco acima e mudar a imagem e o link! -->
+
         </div>
 
         <footer>
             <p>© Marcelo Texturas - Todos os direitos reservados</p>
         </footer>
     </div>
-
-    <script>
-        function copyCode() {
-            var copyText = document.getElementById("skinUrl");
-            copyText.select();
-            copyText.setSelectionRange(0, 99999);
-            navigator.clipboard.writeText(copyText.value);
-            
-            alert("Código copiado com sucesso! Agora é só colar no jogo.");
-        }
-    </script>
 
 </body>
 </html>
