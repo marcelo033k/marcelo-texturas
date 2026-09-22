@@ -70,7 +70,7 @@
             border: 1px solid rgba(0, 183, 255, 0.4);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
             padding: 16px;
-            text-align: center;
+            text-align: left;
         }
         .skin-img {
             width: 100%;
@@ -85,11 +85,52 @@
             color: #ffffff;
             margin-bottom: 8px;
         }
-        .skin-desc {
+        .skin-desc-sub {
             color: #a0b8d0;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
+            font-size: 0.88rem;
+            margin-bottom: 15px;
         }
+
+        /* Barra de Estatísticas: Likes e Visualizações */
+        .stats-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 183, 255, 0.08);
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 183, 255, 0.2);
+            margin-bottom: 15px;
+        }
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            color: #00b7ff;
+        }
+        .btn-like {
+            background: transparent;
+            border: 1px solid #ff0055;
+            color: #ff0055;
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.2s;
+        }
+        .btn-like.liked {
+            background: #ff0055;
+            color: white;
+            box-shadow: 0 0 10px rgba(255, 0, 85, 0.5);
+        }
+
+        /* Input e Botao de Copiar */
         .code-input {
             width: 100%;
             padding: 12px;
@@ -117,10 +158,110 @@
             text-transform: uppercase;
             cursor: pointer;
             box-shadow: 0 0 15px rgba(0, 183, 255, 0.5);
+            margin-bottom: 20px;
         }
         .btn-copy:active {
             transform: scale(0.98);
         }
+
+        /* Caixa de Aviso de Créditos */
+        .credit-box {
+            background: rgba(255, 170, 0, 0.1);
+            border: 1px solid #ffaa00;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 20px;
+            color: #ffcc66;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+        .credit-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: #ffaa00;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Descrição Detalhada */
+        .detail-section {
+            margin-bottom: 20px;
+            border-top: 1px solid rgba(0, 183, 255, 0.15);
+            padding-top: 15px;
+        }
+        .detail-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
+            color: #00b7ff;
+            margin-bottom: 8px;
+        }
+        .detail-text {
+            color: #c0d4e8;
+            font-size: 0.88rem;
+            line-height: 1.4;
+        }
+
+        /* Seção de Comentários */
+        .comments-section {
+            border-top: 1px solid rgba(0, 183, 255, 0.2);
+            padding-top: 20px;
+            margin-top: 10px;
+        }
+        .comment-input, .comment-textarea {
+            width: 100%;
+            background: #050a14;
+            border: 1px solid rgba(0, 183, 255, 0.3);
+            border-radius: 8px;
+            padding: 10px;
+            color: white;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            outline: none;
+        }
+        .comment-textarea {
+            height: 70px;
+            resize: none;
+        }
+        .btn-comment {
+            background: rgba(0, 183, 255, 0.2);
+            border: 1px solid #00b7ff;
+            color: #00b7ff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .comments-list {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .comment-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid #00b7ff;
+            padding: 8px 12px;
+            border-radius: 4px;
+            text-align: left;
+        }
+        .comment-author {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: #00b7ff;
+            margin-bottom: 2px;
+        }
+        .comment-msg {
+            color: #d0e0f0;
+            font-size: 0.85rem;
+        }
+
         footer {
             margin-top: 40px;
             color: #4a6584;
@@ -128,6 +269,7 @@
             font-weight: 600;
             border-top: 1px solid rgba(0, 183, 255, 0.2);
             padding-top: 20px;
+            text-align: center;
         }
     </style>
 </head>
@@ -143,10 +285,49 @@
             <img src="skins%20camionete.png" alt="Viatura PMBA" class="skin-img">
             
             <h1 class="skin-title">🚨 Viatura Polícia Militar da Bahia</h1>
-            <p class="skin-desc">Copie o código abaixo para colar direto no jogo Global Truck Online.</p>
+            <p class="skin-desc-sub">Copie o código abaixo para colar direto no jogo Global Truck Online.</p>
 
+            <!-- Estatísticas: Views e Curtidas -->
+            <div class="stats-bar">
+                <div class="stat-item">
+                    👁️ <span id="viewCount">1,248</span> Visualizações
+                </div>
+                <button class="btn-like" id="likeBtn" onclick="toggleLike()">
+                    ❤️ <span id="likeCount">142</span>
+                </button>
+            </div>
+
+            <!-- Entrada e Botão do Código -->
             <input type="text" id="skinUrl" class="code-input" value="https://raw.githubusercontent.com/marcelo033k/marcelo-texturas/main/skins%20camionete.png" readonly>
             <button class="btn-copy" onclick="copyCode()">COPIAR CÓDIGO DA SKIN</button>
+
+            <!-- Box de Aviso de Créditos para Criadores/YouTubers -->
+            <div class="credit-box">
+                <div class="credit-title">⚠️ ATENÇÃO CRIADORES E YOUTUBERS</div>
+                <p>Se for gravar vídeo ou fazer live utilizando esta skin, por favor <strong>deixe os créditos ao criador (Marcelo Texturas)</strong> com o link do canal ou do site na descrição. Respeite o trabalho do criador!</p>
+            </div>
+
+            <!-- Descrição Detalhada da Skin -->
+            <div class="detail-section">
+                <h3 class="detail-title">📝 Descrição da Skin</h3>
+                <p class="detail-text">Skin ultra detalhada baseada nas viaturas oficiais da Polícia Militar do Estado da Bahia (PMBA). Inclui brasão oficial, numeração tática, detalhes reflexivos e grafismo padrão da corporação adaptado com precisão para o modelo de camionete do Global Truck Online.</p>
+            </div>
+
+            <!-- Seção de Comentários -->
+            <div class="comments-section">
+                <h3 class="detail-title">💬 Comentários da Galera</h3>
+                <input type="text" id="authorName" class="comment-input" placeholder="Seu nome ou Nick do jogo">
+                <textarea id="commentText" class="comment-textarea" placeholder="Deixe seu comentário sobre a skin..."></textarea>
+                <button class="btn-comment" onclick="addComment()">ENVIAR COMENTÁRIO</button>
+
+                <div class="comments-list" id="commentsList">
+                    <div class="comment-item">
+                        <div class="comment-author">Marcos_Gamer</div>
+                        <div class="comment-msg">Top demais cara! Ficou idêntica às viaturas da Bahia. Já tô usando no jogo!</div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <footer>
@@ -155,6 +336,7 @@
     </div>
 
     <script>
+        // Função de Copiar Código
         function copyCode() {
             var copyText = document.getElementById("skinUrl");
             copyText.select();
@@ -162,6 +344,55 @@
             navigator.clipboard.writeText(copyText.value);
             
             alert("Código da skin PMBA copiado com sucesso!");
+        }
+
+        // Função de Curtir (Salva no navegador)
+        let liked = localStorage.getItem('pmba_liked') === 'true';
+        let likes = 142 + (liked ? 1 : 0);
+
+        const likeBtn = document.getElementById('likeBtn');
+        const likeCount = document.getElementById('likeCount');
+
+        if(liked) {
+            likeBtn.classList.add('liked');
+        }
+        likeCount.innerText = likes;
+
+        function toggleLike() {
+            if(!liked) {
+                liked = true;
+                likes++;
+                likeBtn.classList.add('liked');
+            } else {
+                liked = false;
+                likes--;
+                likeBtn.classList.remove('liked');
+            }
+            localStorage.setItem('pmba_liked', liked);
+            likeCount.innerText = likes;
+        }
+
+        // Função de Adicionar Comentários
+        function addComment() {
+            const name = document.getElementById('authorName').value.trim();
+            const msg = document.getElementById('commentText').value.trim();
+
+            if(!name || !msg) {
+                alert('Por favor, preencha seu nome e a mensagem!');
+                return;
+            }
+
+            const commentsList = document.getElementById('commentsList');
+            const newComment = document.createElement('div');
+            newComment.className = 'comment-item';
+            newComment.innerHTML = `
+                <div class="comment-author">${name}</div>
+                <div class="comment-msg">${msg}</div>
+            `;
+
+            commentsList.prepend(newComment);
+            document.getElementById('authorName').value = '';
+            document.getElementById('commentText').value = '';
         }
     </script>
 
