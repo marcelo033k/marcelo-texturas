@@ -148,29 +148,6 @@
             border-radius: 10px;
         }
 
-        /* Botão para Ver Galeria Separada */
-        .btn-gallery {
-            display: block;
-            width: 100%;
-            background: rgba(0, 183, 255, 0.15);
-            border: 1px solid #00b7ff;
-            color: #00b7ff;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            padding: 12px;
-            border-radius: 8px;
-            text-align: center;
-            text-decoration: none;
-            margin-bottom: 15px;
-            box-shadow: 0 0 10px rgba(0, 183, 255, 0.2);
-            transition: 0.2s;
-        }
-        .btn-gallery:active {
-            transform: scale(0.98);
-            background: rgba(0, 183, 255, 0.3);
-        }
-
         .skin-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.2rem;
@@ -408,19 +385,16 @@
                 </div>
             </div>
 
-            <!-- Botão para Abrir a Galeria Separada de Detalhes -->
-            <a href="galeria-pmba.html" class="btn-gallery">📸 VER TODOS OS DETALHES NA GALERIA</a>
-
             <h1 class="skin-title">🚨 Viatura Polícia Militar da Bahia</h1>
             <p class="skin-desc-sub">Copie o código abaixo para colar direto no jogo Global Truck Online.</p>
 
-            <!-- Estatísticas: Views e Curtidas -->
+            <!-- Estatísticas: Views e Curtidas Em Tempo Real -->
             <div class="stats-bar">
                 <div class="stat-item">
-                    👁️ <span id="viewCount">1,248</span> Visualizações
+                    👁️ <span id="viewCount">0</span> Visualizações
                 </div>
                 <button class="btn-like" id="likeBtn" onclick="toggleLike()">
-                    ❤️ <span id="likeCount">142</span>
+                    ❤️ <span id="likeCount">0</span>
                 </button>
             </div>
 
@@ -437,7 +411,7 @@
             <!-- Descrição Detalhada -->
             <div class="detail-section">
                 <h3 class="detail-title">📝 Descrição da Skin</h3>
-                <p class="detail-text">Skin ultra detalhada baseada nas viaturas oficiais da Polícia Militar do Estado da Bahia (PMBA - 4º BPM). Inclui brasão oficial, numeração tática tática, giroflex e grafismo padrão da corporação adaptado com precisão para a camionete do Global Truck Online.</p>
+                <p class="detail-text">Skin ultra detalhada baseada nas viaturas oficiais da Polícia Militar do Estado da Bahia (PMBA - 4º BPM). Inclui brasão oficial, numeração tática, giroflex e grafismo padrão da corporação adaptado com precisão para a camionete do Global Truck Online.</p>
             </div>
 
             <!-- Seção de Comentários -->
@@ -448,10 +422,7 @@
                 <button class="btn-comment" onclick="addComment()">ENVIAR COMENTÁRIO</button>
 
                 <div class="comments-list" id="commentsList">
-                    <div class="comment-item">
-                        <div class="comment-author">Marcos_Gamer</div>
-                        <div class="comment-msg">Top demais cara! Ficou idêntica às viaturas da Bahia. Já tô usando no jogo!</div>
-                    </div>
+                    <!-- Comentários reais aparecerão aqui -->
                 </div>
             </div>
 
@@ -497,7 +468,35 @@
             autoSlideTimer = setInterval(() => moveSlide(1), 3500);
         }
 
-        // Função de Copiar Código
+        // VISUALIZAÇÕES E CURTIDAS EM TEMPO REAL
+        let views = parseInt(localStorage.getItem('pmba_views') || '0') + 1;
+        localStorage.setItem('pmba_views', views);
+        document.getElementById('viewCount').innerText = views.toLocaleString('pt-BR');
+
+        let liked = localStorage.getItem('pmba_liked') === 'true';
+        let likes = parseInt(localStorage.getItem('pmba_likes_count') || '0');
+        const likeBtn = document.getElementById('likeBtn');
+        const likeCount = document.getElementById('likeCount');
+
+        if (liked) likeBtn.classList.add('liked');
+        likeCount.innerText = likes;
+
+        function toggleLike() {
+            if (!liked) {
+                liked = true;
+                likes++;
+                likeBtn.classList.add('liked');
+            } else {
+                liked = false;
+                likes = Math.max(0, likes - 1);
+                likeBtn.classList.remove('liked');
+            }
+            localStorage.setItem('pmba_liked', liked);
+            localStorage.setItem('pmba_likes_count', likes);
+            likeCount.innerText = likes;
+        }
+
+        // FUNÇÃO DE COPIAR CÓDIGO
         function copyCode() {
             var copyText = document.getElementById("skinUrl");
             copyText.select();
@@ -506,35 +505,12 @@
             alert("Código da skin PMBA copiado com sucesso!");
         }
 
-        // Função de Curtir
-        let liked = localStorage.getItem('pmba_liked') === 'true';
-        let likes = 142 + (liked ? 1 : 0);
-        const likeBtn = document.getElementById('likeBtn');
-        const likeCount = document.getElementById('likeCount');
-
-        if(liked) likeBtn.classList.add('liked');
-        likeCount.innerText = likes;
-
-        function toggleLike() {
-            if(!liked) {
-                liked = true;
-                likes++;
-                likeBtn.classList.add('liked');
-            } else {
-                liked = false;
-                likes--;
-                likeBtn.classList.remove('liked');
-            }
-            localStorage.setItem('pmba_liked', liked);
-            likeCount.innerText = likes;
-        }
-
-        // Função de Comentários
+        // FUNÇÃO DE COMENTÁRIOS
         function addComment() {
             const name = document.getElementById('authorName').value.trim();
             const msg = document.getElementById('commentText').value.trim();
 
-            if(!name || !msg) {
+            if (!name || !msg) {
                 alert('Por favor, preencha seu nome e a mensagem!');
                 return;
             }
